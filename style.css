@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Gaegu', cursive;
+}
+
+.full-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  pointer-events: none;
+  animation: floatText 4s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 3vw;
+  margin-bottom: 1rem;
+}
+
+.cake {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.candle {
+  width: 10px;
+  height: 30px;
+  background-color: #ff4d4d;
+  border-radius: 2px;
+  position: relative;
+}
+
+.flame {
+  width: 14px;
+  height: 14px;
+  background-color: orange;
+  border-radius: 50%;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px orange;
+  animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes floatText {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
